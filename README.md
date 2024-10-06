@@ -1,5 +1,8 @@
 # Flutter Authentication App
 
+[Click Here to watch the demo](https://youtu.be/akrLnnI3-Cc).
+
+
 This is a Flutter-based mobile application with Firebase authentication. The app includes features like login, signup, Google login, and a splash screen with animations or a GIF.
 
 ## Features
