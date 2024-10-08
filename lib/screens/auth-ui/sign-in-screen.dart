@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
+import 'package:login_firebase/screens/auth-ui/forget-password-screen.dart';
 import 'package:login_firebase/screens/user-panel/main-screen.dart';
 import '../../controllers/sign-in-controller.dart';
 // import '../controllers/sign-in-controller.dart';
@@ -77,8 +78,8 @@ class _SignInScreenState extends State<SignInScreen> {
                               signInController.isPasswordVisible.toggle();
                             },
                             child: signInController.isPasswordVisible.value
-                                ? Icon(Icons.visibility_off)
-                                : Icon(Icons.visibility),
+                                ? Icon(Icons.visibility)
+                                : Icon(Icons.visibility_off),
                           ),
                           contentPadding: EdgeInsets.only(top: 2.0, left: 8.0),
                           border: OutlineInputBorder(
@@ -95,11 +96,16 @@ class _SignInScreenState extends State<SignInScreen> {
                   onTap: () {
                     // Get.to(() => ForgetPasswordScreen());
                   },
-                  child: Text(
-                    "Forget Password?",
-                    style: TextStyle(
-                        color: AppConstant.appSecondaryColor,
-                        fontWeight: FontWeight.bold),
+                  child: GestureDetector(
+                    onTap: (){
+                      Get.to(()=> ForgetPasswordScreen());
+                    },
+                    child: Text(
+                      "Forget Password?",
+                      style: TextStyle(
+                          color: AppConstant.appSecondaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),

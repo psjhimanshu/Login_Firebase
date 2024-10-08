@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login_firebase/controllers/get-device-token-controller.dart';
 import 'package:login_firebase/screens/auth-ui/sign-in-screen.dart';
 import 'package:login_firebase/utils/app-constant.dart';
 
@@ -19,6 +20,7 @@ class _SignUpscreenState extends State<SignUpscreen> {
   TextEditingController userEmail=TextEditingController();
   TextEditingController userPhone=TextEditingController();
   TextEditingController userPassword=TextEditingController();
+  final GetDeviceTokenController getDeviceTokenController=Get.put(GetDeviceTokenController());
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +162,7 @@ class _SignUpscreenState extends State<SignUpscreen> {
                       String email = userEmail.text.trim();
                       String phone = userPhone.text.trim();
                       String password = userPassword.text.trim();
-                      String userDeviceToken='';
+                      String userDeviceToken=getDeviceTokenController.deviceToken.toString();
 
                       if(name.isEmpty||email.isEmpty||phone.isEmpty||password.isEmpty){
                         Get.snackbar('Error', 'All fields are requirees',
