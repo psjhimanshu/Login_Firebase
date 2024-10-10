@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_firebase/widgets/custom-drawer-widget.dart';
 
 class AdminMainScreen extends StatefulWidget {
   const AdminMainScreen({super.key});
@@ -14,6 +15,7 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
       appBar: AppBar(
         title: Text("Admin Screen"),
       ),
+      drawer: DrawerWidget(),
     );
   }
 }
