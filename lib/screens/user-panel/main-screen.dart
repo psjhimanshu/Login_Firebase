@@ -15,7 +15,7 @@ class Mainscreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppConstant.appMainColor,
-        title: Text(AppConstant.appMainName),
+        title: Text(AppConstant.appMainName,style: TextStyle(color: AppConstant.appTextColor),),
         centerTitle: true,
         actions: [
           GestureDetector(

@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_common/get_reset.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:gif_view/gif_view.dart';
+import 'package:login_firebase/controllers/get-user-data-controller.dart';
+import 'package:login_firebase/screens/admin-panel/admin-main-screen.dart';
 import 'package:login_firebase/screens/auth-ui/welcome-screen.dart';
 import 'package:login_firebase/screens/user-panel/main-screen.dart';
 import 'package:login_firebase/utils/app-constant.dart';
@@ -18,13 +21,30 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+
+  User? user=FirebaseAuth.instance.currentUser;
   @override
   void initState(){
     super.initState();
     Timer(Duration(seconds: 3),()
     {
-      Get.offAll(()=> Welcomescreen());
+      logedin(context);
     });
+  }
+
+  Future<void> logedin(BuildContext context) async{
+    if(user!=null) {
+      final GetUserDataController getUserDataController = Get.put(
+          GetUserDataController());
+      var userData=await getUserDataController.getUserData(user!.uid);
+      if(userData[0]['isAdmin']==true){
+        Get.offAll(()=>AdminMainScreen());
+      }else{
+        Get.offAll(()=>Mainscreen());
+      }
+    }else{
+      Get.to(()=> Welcomescreen());
+    }
   }
 
   @override

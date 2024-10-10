@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
+import 'package:login_firebase/controllers/get-user-data-controller.dart';
+import 'package:login_firebase/screens/admin-panel/admin-main-screen.dart';
 import 'package:login_firebase/screens/auth-ui/forget-password-screen.dart';
 import 'package:login_firebase/screens/user-panel/main-screen.dart';
 import '../../controllers/sign-in-controller.dart';
@@ -20,6 +22,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final SignInController signInController = Get.put(SignInController());
+  final GetUserDataController getUserDataController = Get.put(GetUserDataController());
+
   TextEditingController userEmail = TextEditingController();
   TextEditingController userPassword = TextEditingController();
 
@@ -143,13 +147,29 @@ class _SignInScreenState extends State<SignInScreen> {
                         UserCredential? userCredential = await signInController
                             .signInMethod(email, password);
 
+                        var userData=await getUserDataController.getUserData(userCredential!.user!.uid);
+
                         if (userCredential != null) {
-                          Get.offAll(() =>
-                              Mainscreen()); // Navigate to MainScreen on success
-                          showSnackbar(
-                            title: "Success User Login",
-                            message: "Login Successfully!",
-                          );
+
+                          if(userData[0]['isAdmin']==true){
+                            Get.offAll(()=>
+                                AdminMainScreen());
+                            // Mainscreen()); // Navigate to MainScreen on success
+                            showSnackbar(
+                              title: "Success Admin Login",
+                              message: "Login Successfully!",
+                            );
+                          }else{
+                            Get.offAll(()=>
+                                // AdminMainScreen());
+                            Mainscreen()); // Navigate to MainScreen on success
+                            showSnackbar(
+                              title: "Success User Login",
+                              message: "Login Successfully!",
+                            );
+
+                          }
+
                         } else {
                           showSnackbar(
                             title: "Error",
