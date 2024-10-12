@@ -6,9 +6,12 @@ import 'package:get/get_common/get_reset.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:login_firebase/screens/auth-ui/welcome-screen.dart';
+import 'package:login_firebase/screens/user-panel/all-categories-screen.dart';
 import 'package:login_firebase/utils/app-constant.dart';
 import 'package:login_firebase/widgets/banner-widget.dart';
+import 'package:login_firebase/widgets/category-widget.dart';
 import 'package:login_firebase/widgets/custom-drawer-widget.dart';
+import 'package:login_firebase/widgets/flash-sale-widget.dart';
 import 'package:login_firebase/widgets/heading-widget.dart';
 
 class Mainscreen extends StatelessWidget {
@@ -40,8 +43,10 @@ class Mainscreen extends StatelessWidget {
               // Text("hello"),
               BannerWidget(),
 
-              HeadingWidget(headingTitle: 'Categories', headingSubTitle: 'Budget', onTap: (){}, buttonText: 'See more..'),
+              HeadingWidget(headingTitle: 'Categories', headingSubTitle: 'Budget', onTap: ()=>Get.to(()=>AllCategoriesScreen()), buttonText: 'See more..'),
+              CategoriesWidget(),
               HeadingWidget(headingTitle: 'Categories1', headingSubTitle: 'Budget', onTap: (){}, buttonText: 'See more..'),
+              FlashSaleWidget(),
               HeadingWidget(headingTitle: 'Categories2', headingSubTitle: 'Budget', onTap: (){}, buttonText: 'See more..'),
             ],
           ),
