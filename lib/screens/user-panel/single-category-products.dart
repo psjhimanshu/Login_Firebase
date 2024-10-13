@@ -42,7 +42,7 @@ class _AllSingleCategoryProductsScreenState
             );
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Container(
+            return SizedBox(
               height: Get.height / 5,
               child: Center(
                 child: CupertinoActivityIndicator(),

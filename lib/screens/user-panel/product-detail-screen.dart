@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class _ProductDetailsScreenState extends StatefulWidget {
-  const _ProductDetailsScreenState({super.key});
+  const _ProductDetailsScreenState();
 
   @override
   State<_ProductDetailsScreenState> createState() => _ProductDetailsScreenStateState();

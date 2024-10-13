@@ -2,9 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:login_firebase/screens/auth-ui/sign-in-screen.dart';
 import 'package:login_firebase/screens/auth-ui/splash-screen.dart';
-import 'package:login_firebase/screens/user-panel/main-screen.dart';
 
 import 'firebase_options.dart';
 

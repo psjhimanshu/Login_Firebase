@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login_firebase/utils/app-constant.dart';
 
@@ -8,7 +7,7 @@ class HeadingWidget extends StatelessWidget {
   final String headingSubTitle;
   final VoidCallback onTap;
   final String buttonText;
-  HeadingWidget({super.key,
+  const HeadingWidget({super.key,
     required this.headingTitle,
     required this.headingSubTitle,
     required this.onTap,

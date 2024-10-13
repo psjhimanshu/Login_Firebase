@@ -15,7 +15,7 @@ class CategoriesModel {
   });
 
   // Serialize the CategoriesModel instance to a JSON map
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
       'categoryId': categoryId,
       'categoryName': categoryName,
@@ -26,7 +26,7 @@ class CategoriesModel {
   }
 
   // Create a CategoriesModel instance from a JSON map
-  factory CategoriesModel.fromJson(Map<String, dynamic> json) {
+  factory CategoriesModel.fromMap(Map<String, dynamic> json) {
     return CategoriesModel(
       categoryId: json['categoryId'],
       categoryName: json['categoryName'],

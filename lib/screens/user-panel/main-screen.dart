@@ -1,11 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_common/get_reset.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:login_firebase/screens/auth-ui/welcome-screen.dart';
 import 'package:login_firebase/screens/user-panel/all-categories-screen.dart';
 import 'package:login_firebase/utils/app-constant.dart';
 import 'package:login_firebase/widgets/banner-widget.dart';
@@ -45,7 +40,7 @@ class Mainscreen extends StatelessWidget {
 
               HeadingWidget(headingTitle: 'Categories', headingSubTitle: 'Budget', onTap: ()=>Get.to(()=>AllCategoriesScreen()), buttonText: 'See more..'),
               CategoriesWidget(),
-              HeadingWidget(headingTitle: 'Categories1', headingSubTitle: 'Budget', onTap: (){}, buttonText: 'See more..'),
+              HeadingWidget(headingTitle: 'flash sale', headingSubTitle: 'Budget', onTap: (){}, buttonText: 'See more..'),
               FlashSaleWidget(),
               HeadingWidget(headingTitle: 'Categories2', headingSubTitle: 'Budget', onTap: (){}, buttonText: 'See more..'),
             ],

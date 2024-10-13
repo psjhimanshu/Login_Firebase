@@ -3,15 +3,12 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_common/get_reset.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:gif_view/gif_view.dart';
 import 'package:login_firebase/controllers/get-user-data-controller.dart';
 import 'package:login_firebase/screens/admin-panel/admin-main-screen.dart';
 import 'package:login_firebase/screens/auth-ui/welcome-screen.dart';
 import 'package:login_firebase/screens/user-panel/main-screen.dart';
 import 'package:login_firebase/utils/app-constant.dart';
-import 'package:lottie/lottie.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -62,12 +59,9 @@ return Scaffold(
             child: Column(
               children: [
                 Expanded(
-                  child: Container(child: GifView.asset('assets/images/hacker.gif'
+                  child: Container(alignment: Alignment.center,
+                    width: Get.width,child: GifView.asset('assets/images/hacker.gif'
                   ),
-                    // margin: EdgeInsets.only(top: 400.0),
-
-                    alignment: Alignment.center,
-                    width: Get.width,
                   ),
                 ),
                 // Container(

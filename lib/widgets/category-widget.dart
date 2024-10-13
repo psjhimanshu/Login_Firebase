@@ -23,7 +23,7 @@ class CategoriesWidget extends StatelessWidget {
           );
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Container(
+          return SizedBox(
             height: Get.height / 5,
             child: Center(
               child: CupertinoActivityIndicator(),
@@ -38,7 +38,7 @@ class CategoriesWidget extends StatelessWidget {
         }
 
         if (snapshot.data != null) {
-          return Container(
+          return SizedBox(
             height: Get.height / 5.0,
             child: ListView.builder(
               itemCount: snapshot.data!.docs.length,

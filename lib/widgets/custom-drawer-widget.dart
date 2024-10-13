@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -25,6 +24,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           bottomRight: Radius.circular(20.0),
         )
     ),
+          backgroundColor: AppConstant.appSecondaryColor,
           child: Wrap(
             runSpacing: 10,
               children: [
@@ -83,8 +83,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   child: ListTile(
                       onTap: ()async {
                         GoogleSignIn googleSignIn = GoogleSignIn();
-                        FirebaseAuth _auth = FirebaseAuth.instance;
-                        await _auth.signOut();
+                        FirebaseAuth auth = FirebaseAuth.instance;
+                        await auth.signOut();
                         await googleSignIn.signOut();
                         Get.offAll(() => Welcomescreen());
                       },
@@ -97,7 +97,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
 
               ],
           ),
-          backgroundColor: AppConstant.appSecondaryColor,
     ),
     );
   }

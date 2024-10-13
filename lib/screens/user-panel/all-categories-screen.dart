@@ -43,7 +43,7 @@ class _AllCategoriesScreenState extends State<AllCategoriesScreen> {
             );
           }
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Container(
+            return SizedBox(
               height: Get.height / 5,
               child: Center(
                 child: CupertinoActivityIndicator(),

@@ -1,15 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
-import 'package:login_firebase/screens/user-panel/main-screen.dart';
 import '../../controllers/forgot-password-controller.dart';
-import '../../controllers/sign-in-controller.dart';
 // import '../controllers/sign-in-controller.dart';
 // import '../utils/constant.dart';
 // import 'main-screen.dart';
 import '../../utils/app-constant.dart';
-import 'sign-up-screen.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});

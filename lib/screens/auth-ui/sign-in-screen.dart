@@ -149,34 +149,26 @@ class _SignInScreenState extends State<SignInScreen> {
 
                         var userData=await getUserDataController.getUserData(userCredential!.user!.uid);
 
-                        if (userCredential != null) {
-
-                          if(userData[0]['isAdmin']==true){
-                            Get.offAll(()=>
-                                AdminMainScreen());
-                            // Mainscreen()); // Navigate to MainScreen on success
-                            showSnackbar(
-                              title: "Success Admin Login",
-                              message: "Login Successfully!",
-                            );
-                          }else{
-                            Get.offAll(()=>
-                                // AdminMainScreen());
-                            Mainscreen()); // Navigate to MainScreen on success
-                            showSnackbar(
-                              title: "Success User Login",
-                              message: "Login Successfully!",
-                            );
-
-                          }
-
-                        } else {
+                        if(userData[0]['isAdmin']==true){
+                          Get.offAll(()=>
+                              AdminMainScreen());
+                          // Mainscreen()); // Navigate to MainScreen on success
                           showSnackbar(
-                            title: "Error",
-                            message: "Login failed, please try again",
+                            title: "Success Admin Login",
+                            message: "Login Successfully!",
                           );
+                        }else{
+                          Get.offAll(()=>
+                              // AdminMainScreen());
+                          Mainscreen()); // Navigate to MainScreen on success
+                          showSnackbar(
+                            title: "Success User Login",
+                            message: "Login Successfully!",
+                          );
+
                         }
-                      } catch (e) {
+
+                                            } catch (e) {
                         // Handle exceptions such as FirebaseAuthException
                         showSnackbar(
                           title: "Error",

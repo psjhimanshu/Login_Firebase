@@ -27,7 +27,7 @@ class FlashSaleWidget extends StatelessWidget {
           );
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Container(
+          return SizedBox(
             height: Get.height / 5,
             child: Center(
               child: CupertinoActivityIndicator(),
@@ -42,7 +42,7 @@ class FlashSaleWidget extends StatelessWidget {
         }
 
         if (snapshot.data != null) {
-          return Container(
+          return SizedBox(
             height: Get.height / 5,
             child: ListView.builder(
               itemCount: snapshot.data!.docs.length,
@@ -64,6 +64,7 @@ class FlashSaleWidget extends StatelessWidget {
                   createdAt: productData['createdAt'],
                   updatedAt: productData['updatedAt'],
                 );
+
                 // CategoriesModel categoriesModel = CategoriesModel(
                 //   categoryId: snapshot.data!.docs[index]['categoryId'],
                 //   categoryImg: snapshot.data!.docs[index]['categoryImg'],
@@ -104,7 +105,7 @@ class FlashSaleWidget extends StatelessWidget {
                                   width: 2.0,
                                 ),
                                 Text(
-                                  "${productModel.fullPrice}",
+                                  productModel.fullPrice,
                                   style: TextStyle(
                                     fontSize: 10.0,
                                     color: AppConstant.appSecondaryColor,
